@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RainHarvest.About">
+    
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout>
+                <Grid Padding="0,0,0,0">
+                    <StackLayout Grid.Row="0" Grid.Column="0">
+                        <ImageButton Grid.Row="0" Grid.Column="0" Source="information01" Aspect="Fill"/>
+                    </StackLayout>
+                </Grid>
+                <Grid Padding="0,5,0,0">
+                    <StackLayout Grid.Row="0" Grid.Column="0">
+                        <Image Grid.Row="0" Grid.Column="0" Source="Information02" Aspect="Fill"/>
+                    </StackLayout>
+                </Grid>
+                <Grid Padding="0,30,0,0">
+                    <StackLayout Grid.Row="0" Grid.Column="0">
+                        <Label FontSize="20" Text="Rain Harvest Filtering System Technology" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                        <ImageButton Grid.Row="0" Grid.Column="0" Source="Bacfree" Aspect="Fill" Clicked="OnBacfree"/>
+                        <Label FontSize="16" Text="Bacfree" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                    </StackLayout>
+                </Grid>
+                <Grid Padding="0,5,0,0">
+                    <StackLayout Grid.Row="0" Grid.Column="0">
+                        <Image Grid.Row="0" Grid.Column="0" Source="Information03" Aspect="Fill"/>
+                    </StackLayout>
+                </Grid>
+                <Grid Padding="0,20,0,0">
+                    <StackLayout Grid.Row="0" Grid.Column="0">
+                        <ImageButton Grid.Row="0" Grid.Column="0" Source="iRain" Aspect="Fill" Clicked="OniRain"/>
+                        <Label FontSize="16" Text="iRain Technology" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                    </StackLayout>
+                </Grid>
+                <Frame BackgroundColor="#117A8F" Padding="5" CornerRadius="0">
+                <Label Text="Rain Harvest@2022 Developer: Liyana Zaiman (IS0107538)" TextColor="White" FontSize="11" HorizontalOptions="Center"/>
+            </Frame>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

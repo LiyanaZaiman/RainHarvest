@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RainHarvest.MsiaRainHarvestAvgTable">
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <FlexLayout Direction="Row" AlignItems="Center" JustifyContent="SpaceEvenly" Padding="0,10,0,0">
+                    <!--<Entry x:Name="findRecord" Placeholder="Enter BMI Status"/> -->
+                    <Picker x:Name="findState" Title="Choose State" VerticalOptions="CenterAndExpand" />
+                </FlexLayout>
+                <Grid Padding="10,30,10,0">
+                    <StackLayout Grid.Row="0" Grid.Column="0">
+                        <ImageButton Grid.Row="0" Grid.Column="0" Source="percipitation" Aspect="Fill"/>
+                    </StackLayout>
+                </Grid>
+                <Frame BackgroundColor="#117A8F" Padding="5" CornerRadius="0">
+                    <Label Text="Malaysia Annual Precipitation Rate" TextColor="White" FontSize="14" HorizontalOptions="Center"/>
+                </Frame>
+                <Grid Padding="10,30,10,0">
+                    <StackLayout Grid.Row="0" Grid.Column="0">
+                        <ImageButton Grid.Row="0" Grid.Column="0" Source="MyAnnualPercRate" Aspect="AspectFill"/>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

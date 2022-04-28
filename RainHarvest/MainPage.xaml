@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RainHarvest.MainPage"
+             Title="Rain Harvest Calculator">
+    
+    <ScrollView>
+    <StackLayout>
+            <StackLayout>
+                <Frame BackgroundColor="#117A8F" Padding="5" CornerRadius="0">
+                    <FlexLayout Direction="Row"
+                JustifyContent="Start">
+                        <!--<Label Text="Choose a date" HorizontalTextAlignment="Start" />-->
+                        <DatePicker x:Name="selectDate" DateSelected="onDatePickerSelected" Format="dd/MM/yyyy" TextColor="White" FontSize="14"/>
+                    </FlexLayout>
+                </Frame>
+                <FlexLayout Direction="Row" AlignItems="Center" JustifyContent="SpaceEvenly">
+                    <Label FontSize="18" Text="Title :"/>
+                    <Entry x:Name="inputtitle" Placeholder="Enter the title name" Keyboard="Text"/>
+                </FlexLayout>
+                <FlexLayout Direction="Row" AlignItems="Center" JustifyContent="SpaceEvenly">
+                    <Label FontSize="18" Text="Note :"/>
+                    <Entry x:Name="inputnote" Placeholder="Enter note (if any)" Keyboard="Text"/>
+                </FlexLayout>
+                <!--Calculations-->
+                <Frame BackgroundColor="#117A8F" Padding="5" CornerRadius="0">
+                    <Label Text="Calculations" TextColor="White" FontSize="14"/>
+                </Frame>
+                <FlexLayout Direction="Row" AlignItems="Center" JustifyContent="SpaceEvenly">
+                    <Label FontSize="18" Text="State:"/>
+                    <Picker x:Name="findState" Title="Choose State" VerticalOptions="CenterAndExpand" />
+                </FlexLayout>
+                <!--Rain Fall (inches & mm)-->
+                <FlexLayout Direction="Row" AlignItems="Center" JustifyContent="SpaceEvenly">
+                    <Label FontSize="18" Text="Rainfall :"/>
+                    <Entry x:Name="inputRainfall" Placeholder="mm" Keyboard="Numeric"/>
+                </FlexLayout>
+                <!-- Area sq feet & m^2-->
+                <FlexLayout Direction="Row" AlignItems="Center" JustifyContent="SpaceEvenly">
+                    <Label FontSize="18" Text="Catchment Area :"/>
+                    <Entry x:Name="inputCatchmentarea" Placeholder="m^2" Keyboard="Numeric"/>
+                </FlexLayout>
+                <!--Runoff Coefficient Value-->
+                <FlexLayout Direction="Row" AlignItems="Center" JustifyContent="SpaceEvenly">
+                    <Label FontSize="18" Text="Runoff coefficient: "/>
+                    <Entry x:Name="inputRunoffcoeff" Placeholder="0.00" Keyboard="Numeric"/>
+                </FlexLayout>
+                <FlexLayout Direction="Row" AlignItems="Center" JustifyContent="SpaceEvenly" Padding="10,10,10,30">
+                    <Label FontSize="18" Text="Unit :"/>
+                    <Button x:Name="metric" Text="Metric" WidthRequest="80" BackgroundColor="#9EFFFF" TextColor="Black" VerticalOptions="Center" />
+                    <Button x:Name="us" Text="US" WidthRequest="80" BackgroundColor="LightSlateGray" TextColor="White" VerticalOptions="Center" Clicked="Button_Cliked"/>
+                    
+                </FlexLayout>
+                <FlexLayout Direction="Row" AlignItems="Center" JustifyContent="SpaceEvenly">
+                    <Button x:Name="calculateButton" Text="Calculate" VerticalOptions="CenterAndExpand" WidthRequest="130" BackgroundColor="#9EFFFF" FontAttributes="Bold" TextColor="Black" Clicked="OnCalculateRH"/>
+                    <Button x:Name="resetButton" Text="Reset" VerticalOptions="CenterAndExpand" WidthRequest="130" BackgroundColor="SlateGray" TextColor="White" Clicked="OnReset"/>
+                </FlexLayout>
+                <StackLayout HorizontalOptions="Center">
+                    <Label FontSize="22" Text="Total Liter" HorizontalTextAlignment="Center" FontAttributes="Bold" Padding="0,30,0,0" TextColor="Black"/>
+                    <Label x:Name="outputResult" FontSize="24" Text="0.00" HorizontalTextAlignment="Center" FontAttributes="Bold" TextColor="Black"/>
+                </StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand" HeightRequest="34" Padding="30,20,30,40">
+                    <Button x:Name="saveButton" Text="Save" FontSize ="Large" FontAttributes="Bold" BackgroundColor="#9EFFFF" TextColor="Black" VerticalOptions="CenterAndExpand" Clicked="OnSaveRecord"/>
+                </StackLayout>
+                <!--Calculation Details-->
+                <Frame BackgroundColor="#117A8F" Padding="5" CornerRadius="0">
+                    <Label Text="Calculation Details" TextColor="White" FontSize="14"/>
+                </Frame>
+                <FlexLayout Direction="Row" AlignItems="Center" JustifyContent="SpaceEvenly">
+                    <Label FontSize="24" Text="Rainfall Collection Equations" FontAttributes="Bold"/>
+                </FlexLayout>
+                <FlexLayout Direction="Row" AlignItems="Center" JustifyContent="SpaceEvenly">
+                    <Label FontSize="16" Text="V(Liter) = CA (m^2) X P(mm) X RC X 0.623" FontAttributes="Bold" Padding="5"/>
+                </FlexLayout>
+
+                <StackLayout  HorizontalOptions="Center" Padding="0,30,20,10">
+
+                    <Grid>
+                        <Label Text="Symbol" HorizontalOptions="Center" FontAttributes="Bold"/>
+                        <Label Grid.Column="1" Text="Description" HorizontalOptions="Center" FontAttributes="Bold"/>
+                    </Grid>
+                    <Grid>
+                        <Label Text="V " HorizontalOptions="Center" FontAttributes="Bold"/>
+                        <Label Grid.Column="1" Text="The volume  rainforest harvest in gallons or liter" HorizontalOptions="Center" />
+                    </Grid>
+                    <Grid>
+                        <Label Text="CA " HorizontalOptions="Center" FontAttributes="Bold"/>
+                        <Label Grid.Column="1" Text="The catchment area (the area which the rain is collected) in square feet or m2" HorizontalOptions="Center" />
+                    </Grid>
+                    <Grid>
+                        <Label Text="P " HorizontalOptions="Center" FontAttributes="Bold"/>
+                        <Label Grid.Column="1" Text="The depth of the rainfall in inches or mm (average yearly, monthly)" HorizontalOptions="Center" />
+                    </Grid>
+                    <Grid>
+                        <Label Text="RC " HorizontalOptions="Center" FontAttributes="Bold"/>
+                        <Label Grid.Column="1" Text="The runoff coefficient (expressed in decimal)" HorizontalOptions="Center" />
+                    </Grid>
+                    <Grid>
+                        <Label Text="0.623 " HorizontalOptions="Center" FontAttributes="Bold"/>
+                        <Label Grid.Column="1" Text="The conversion factor" HorizontalOptions="Center" />
+                    </Grid>
+                </StackLayout> 
+                <FlexLayout Direction="Row" AlignItems="Center" JustifyContent="SpaceEvenly" Padding="0,30,0,0">
+                    <Button FontSize="20" BackgroundColor="#FFFFFF" Text="Your Calculations" FontAttributes="Bold" Clicked="showCurrentRecord"/>
+                </FlexLayout>
+                <FlexLayout Direction="Row" AlignItems="Center" JustifyContent="SpaceEvenly">
+                    <Label FontSize="24" x:Name="currentCalc" Text="(xxxx.xx) X (xx.xx) X (xx.xx) X 0.623= xxx.xx liters" FontAttributes="Bold" Padding="5"/>
+                    <!--<Label FontSize="24" Text="{Binding showCurrentRecord}" FontAttributes="Bold" Padding="5"/> -->
+                </FlexLayout>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
